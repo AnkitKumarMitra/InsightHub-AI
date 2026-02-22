@@ -1,0 +1,20 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #212529;
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus,
+input:focus {
+  box-shadow: none !important;
+}

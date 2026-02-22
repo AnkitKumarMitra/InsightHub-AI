@@ -1,0 +1,65 @@
+# =========================
+# Python / Backend
+# =========================
+
+# Virtual environments
+venv/
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# SQLite database
+*.db
+
+# Logs
+*.log
+
+# =========================
+# Backend generated files
+# =========================
+
+backend/storage/
+backend/*.sqlite3
+
+# =========================
+# Node / Frontend
+# =========================
+
+# Node modules
+node_modules/
+
+# Vite / React build output
+dist/
+
+# =========================
+# OS / Editor
+# =========================
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# IntelliJ / PyCharm
+.idea/
+
+# =========================
+# Misc
+# =========================
+
+# Coverage reports
+coverage/
+
+# Temporary files
+*.tmp
+*.swp
