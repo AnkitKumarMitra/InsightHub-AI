@@ -58,11 +58,5 @@ class RAGService:
 
         Answer:
         """.strip()
-        print("----------------------")
-        print("----------------------")
-        print("----------------------")
-        print("----------------------")
-        print("----------------------")
-        print(prompt)
 
         return prompt
