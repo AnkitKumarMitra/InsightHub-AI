@@ -7,13 +7,8 @@ from app.api.query import router as query_router
 from app.api.documents import router as documents_router
 
 print(">>> App created")
+
 app = FastAPI()
-
-
-@app.on_event("startup")
-def startup_event():
-    from app.infrastructure.embeddings import embedding_service
-    embedding_service.load_model()
 
 app.add_middleware(
     CORSMiddleware,
