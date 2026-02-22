@@ -12,3 +12,6 @@ class EmbeddingService:
         if self.model is None:
             self.load_model()
         return self.model.encode(text).tolist()
+
+
+embedding_service = EmbeddingService()
