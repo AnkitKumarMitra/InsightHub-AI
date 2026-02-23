@@ -1,18 +1,16 @@
-print(">>> App import started")
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.auth import router as auth_router
 from app.api.query import router as query_router
 from app.api.documents import router as documents_router
-
-print(">>> App created")
+from app.core.config import settings
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[settings.FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

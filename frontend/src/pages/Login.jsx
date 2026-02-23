@@ -20,7 +20,6 @@ function Login() {
   }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
-    console.log("handleSubmit fired");
     e.preventDefault();
     setError("");
 
@@ -28,7 +27,6 @@ function Login() {
       setError("Please enter both email and password.");
       return;
     }
-
     try {
       setLoading(true);
 
@@ -37,7 +35,6 @@ function Login() {
       login(accessToken);
       navigate("/chat", { replace: true });
     } catch (err) {
-      console.log("here")
       setError(
         err.response?.data?.detail ||
         "Invalid credentials. Please try again."
