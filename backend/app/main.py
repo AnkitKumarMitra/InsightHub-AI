@@ -15,6 +15,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+print("CORS FRONTEND URL:", settings.FRONTEND_URL)
 
 @app.get("/health", tags=["Health"])
 async def health_check():

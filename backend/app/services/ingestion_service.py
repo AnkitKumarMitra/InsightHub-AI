@@ -43,9 +43,6 @@ class IngestionService:
         return len(chunks)
 
     def ingest_file(self, file_path: Path) -> int:
-        """
-        Ingest a file (txt, pdf, docx).
-        """
 
         text: Optional[str] = extract_text(file_path)
 

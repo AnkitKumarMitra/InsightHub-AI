@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from functools import lru_cache
 
@@ -16,7 +16,6 @@ class QueryRequest(BaseModel):
 
 class QueryResponse(BaseModel):
     answer: str
-
 
 @lru_cache(maxsize=1)
 def get_embedder() -> EmbeddingService:
@@ -36,13 +35,21 @@ def get_rag_service() -> RAGService:
         llm_client=get_llm_client(),
     )
 
-@router.post("/", response_model=QueryResponse)
+@router.post("", response_model=QueryResponse)
 def query_knowledge_base(
     request: QueryRequest,
     current_user: dict = Depends(get_current_user),
 ):
     rag_service = get_rag_service()
 
-    answer = rag_service.answer_question(request.question)
+    try:
+        answer = rag_service.answer_question(request.question)
+        return QueryResponse(answer=answer)
 
-    return QueryResponse(answer=answer)
+    except Exception as e:
+        print("Query error:", str(e))
+
+        raise HTTPException(
+            status_code=503,
+            detail="The knowledge service is temporarily unavailable. Please try again shortly.",
+        )
